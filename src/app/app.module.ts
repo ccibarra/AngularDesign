@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InformationBoardComponent } from './information-board/information-board.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    InformationBoardComponent
+    InformationBoardComponent,
   ],
   imports: [
     BrowserModule,

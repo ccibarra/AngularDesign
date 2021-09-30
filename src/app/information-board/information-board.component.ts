@@ -36,6 +36,7 @@ export class InformationBoardComponent implements OnInit {
     .subscribe (res =>{
       console.log(res);
       Swal.fire('Empleado agregado')
+      let ref
     },
     err=>{
       Swal.fire('Algo salio mal')
@@ -45,9 +46,11 @@ export class InformationBoardComponent implements OnInit {
   getRecord(){
     this.api.getResgistration()
     .subscribe (res=>{
-      this.recordData = res;
+      this.recordData = res.usuarios;
     })
   }
   
+  
 
 }
+ 
