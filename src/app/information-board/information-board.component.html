@@ -1,0 +1,87 @@
+<nav class="navbar navbar-light" style="background-color: #7952b3;">
+    <div class="container-fluid">
+      <a style= "color: aliceblue;"class="navbar-brand">Design Media</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-warning">Agregar</button>
+      </form>
+    </div>
+  </nav>
+
+  <!--insert table-->
+
+  <table class="table table-hover mt-3 ">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Corrreo</th>
+        <th scope="col">Rol</th> 
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let row of recordData">
+        <td>{{row.id}}</td>
+        <td>{{row.nombre}}</td>
+        <td>{{row.correo}}</td>
+        <td>{{row.rol}}</td>
+        
+        
+        <td>
+          <button type="button" class="btn btn-outline-danger">Eliminar</button>
+          <button type="button" class="btn btn-outline-success mx-3">Actualizar</button>
+        </td> 
+      </tr>  
+      <nav aria-label="Resultados json">
+        <ul class="pagination ">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </tbody>
+  </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Registro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" formControlName = "nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Correo</label>
+            <input type="email" formControlName = "correo" class="form-control" id="exampleInputPassword1">
+          </div>  
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">paswoord</label>
+            <input type="password" formControlName = "password" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Rol</label>
+            <input type="text" formControlName = "rol" class="form-control" id="exampleInputPassword1">
+          </div>  
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" (click) ="posRecord()" class="btn btn-outline-success">Agergar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
