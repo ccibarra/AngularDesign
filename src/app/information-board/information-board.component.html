@@ -22,15 +22,16 @@
     </thead>
     <tbody>
       <tr *ngFor= "let row of recordData">
-        <td>{{1}}</td>
+        <td>{{row.uid}}</td>
         <td>{{row.nombre}}</td>
         <td>{{row.correo}}</td>
         <td>{{row.rol}}</td>
+        <td>{{row.password}}</td>
         
         
         <td>
-          <button type="button" class="btn btn-outline-danger">Eliminar</button>
-          <button type="button" class="btn btn-outline-success mx-3">Actualizar</button>
+          <button (click)= "deleteRecord (row)"type="button" class="btn btn-outline-danger">Eliminar</button>
+          <button  (click)= "onEdit (row)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success mx-3">Actualizar</button>
         </td> 
       </tr>  
       <nav aria-label="Resultados json">
@@ -66,7 +67,7 @@
           </div>  
 
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">paswoord</label>
+            <label for="exampleInputPassword1" class="form-label">password</label>
             <input type="password" formControlName = "password" class="form-control" id="exampleInputPassword1">
           </div>
 
@@ -79,6 +80,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" (click) ="posRecord()" class="btn btn-outline-success">Agergar</button>
+        <button type="button" (click) ="updateRecord()" class="btn btn-outline-success">Actualizar</button>
       </div>
     </div>
   </div>
